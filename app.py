@@ -13,19 +13,35 @@ banco = mysql.connector.connect(
 
 def funcao_principal():
   linha1= formulario.lineEdit.text()
-  linha2= formulario.lineEdit.text()
+  linha2= formulario.lineEdit_2.text()  
+  escolha = ""
+  sexo = ""
+  if formulario.buttonman.isChecked() :    
+    sexo="Masculino"
+  elif formulario.buttonwomen.isChecked() :    
+    sexo="Feminino"
+  else:    
+    sexo="Outro"
   
-  if formulario.radioButton.isChecked():
-    print("Sexo masculino foi selecionado")
-  elif formulario.radioButton_2.isChecked():
-    print("Sexo feminino foi selecionado")
-  else:
-    print("Outro sexo foi selecionado")
+  if formulario.buttonsuper.isChecked():      
+    escolha="superman"
+  elif formulario.buttonbatman.isChecked():   
+    escolha='batman'
 
+    
 
   print("Nome: ", linha1)
-  print("Idade: ", linha2)
-
+  print("Idade: ", linha2)  
+  print("Sexo:", sexo)
+  print("Heroi", escolha)
+  
+  
+  
+  cursor = banco.cursor()
+  comando_SQL = "INSERT INTO herois (nome,idade,sexo,escolha) VALUES (%s, %s, %s, %s)"
+  dados = (str(linha1), int(linha2), escolha, sexo)
+  cursor.execute(comando_SQL, dados)
+  banco.commit()
 
 app=QtWidgets.QApplication([])
 formulario=uic.loadUi("formulario.ui")
