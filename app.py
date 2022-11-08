@@ -1,4 +1,15 @@
 from PyQt5 import uic, QtWidgets
+import mysql.connector
+
+# criar uma variavel que recebe o mysql.connector 
+# para conectar ao BANCO DE DADOS.
+
+banco = mysql.connector.connect(
+  host='localhost', 
+  user="root",
+  passwd="",
+  database="super_hero"
+)
 
 def funcao_principal():
   linha1= formulario.lineEdit.text()
