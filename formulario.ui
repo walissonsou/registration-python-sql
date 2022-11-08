@@ -44,7 +44,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>   PESQUISA  ELEITORAL</string>
+    <string>   BATMAN vs SUPERMAN </string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -64,7 +64,7 @@
     </font>
    </property>
    <property name="text">
-    <string>IDADE</string>
+    <string>AGE</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -84,7 +84,7 @@
     </font>
    </property>
    <property name="text">
-    <string>SEXO</string>
+    <string>SEX</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -104,7 +104,7 @@
     </font>
    </property>
    <property name="text">
-    <string>NOME</string>
+    <string>NAME</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
@@ -145,7 +145,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>MASCULINO</string>
+    <string>MAN</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_2">
@@ -158,7 +158,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>FEMININO</string>
+    <string>WOMEN</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_3">
@@ -171,7 +171,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>OUTRO</string>
+    <string>OTHER</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -189,13 +189,13 @@
     </font>
    </property>
    <property name="text">
-    <string>CANDIDATO PARA O SEGUNDO TURNO:</string>
+    <string> CHOOSE YOUR SUPER HERO</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_4">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>75</x>
      <y>320</y>
      <width>121</width>
      <height>51</height>
@@ -203,7 +203,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -212,7 +212,7 @@ color: white;
 </string>
    </property>
    <property name="text">
-    <string>LULA 13</string>
+    <string>TEAM SUPER-MAN</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_5">
@@ -231,12 +231,12 @@ color: white;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: green;
+    <string notr="true">background-color: blue;
 color: white;
 </string>
    </property>
    <property name="text">
-    <string>BOLSONARO 22</string>
+    <string>TEAM BATMAN</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
