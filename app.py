@@ -27,22 +27,23 @@ def funcao_principal():
     escolha="superman"
   elif formulario.buttonbatman.isChecked():   
     escolha='batman'
-
     
 
   print("Nome: ", linha1)
   print("Idade: ", linha2)  
   print("Sexo:", sexo)
   print("Heroi", escolha)
-  
-  
-  
+ 
   cursor = banco.cursor()
   comando_SQL = "INSERT INTO herois (nome,idade,sexo,escolha) VALUES (%s, %s, %s, %s)"
   dados = (str(linha1), int(linha2), escolha, sexo)
   cursor.execute(comando_SQL, dados)
   banco.commit()
-
+  
+  formulario.lineEdit.setText("")
+  formulario.lineEdit_2.setText("")
+  
+  
 app=QtWidgets.QApplication([])
 formulario=uic.loadUi("formulario.ui")
 formulario.pushButton.clicked.connect(funcao_principal)
