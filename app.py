@@ -47,8 +47,7 @@ def funcao_principal():
 def chama_segunda_tela():
     segunda_tela.show()
     ## lendo os dados do banco
-    cursor = banco.cursor()
-    comando_buscarescolha = "SELECT sexo FROM herois;"
+    cursor = banco.cursor()    
     comando_SQL = "SELECT * FROM herois"
     cursor.execute(comando_SQL)    
     
@@ -66,10 +65,19 @@ def chama_segunda_tela():
     
 def porcentagem():    
     cursor = banco.cursor()
-    comando_SQL= "SELECT sexo FROM herois;"        
-    cursor.execute(comando_SQL)    
+    comando_RESUMOSQL= "Select sexo, count(sexo) from herois group by sexo having count('superman' or 'batman')"        
+    cursor.execute(comando_RESUMOSQL)    
     dados_lidos = cursor.fetchall()   
-  
+    
+    segunda_tela.tableWidget_2.setRowCount(len(dados_lidos))
+     # setcolumnCount - quantas colunas
+    segunda_tela.tableWidget_2.setColumnCount(2)
+    
+    for i in range(0, len(dados_lidos)):
+      for j in range(0,2):
+        segunda_tela.tableWidget_2.setItem(i,j,QtWidgets.QTableWidgetItem(str(dados_lidos[i][j])))   
+    
+    
 def gerar_pdf():     
     cursor = banco.cursor()   
     comando_SQL = "SELECT * FROM herois"
@@ -104,6 +112,7 @@ segunda_tela=uic.loadUi("listar_datas.ui")
 formulario.pushButton.clicked.connect(funcao_principal)
 formulario.pushButton_2.clicked.connect(chama_segunda_tela)
 segunda_tela.pushButton.clicked.connect(gerar_pdf)
+segunda_tela.pushButton_2.clicked.connect(porcentagem)
 
 formulario.show()
 app.exec()
