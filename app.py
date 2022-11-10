@@ -68,7 +68,7 @@ def porcentagem():
     comando_RESUMOSQL= "Select sexo, count(sexo) from herois group by sexo having count('superman' or 'batman')"        
     cursor.execute(comando_RESUMOSQL)    
     dados_lidos = cursor.fetchall()   
-    
+      # criando linhas de acordo com o tamanho de dados lidos
     segunda_tela.tableWidget_2.setRowCount(len(dados_lidos))
      # setcolumnCount - quantas colunas
     segunda_tela.tableWidget_2.setColumnCount(2)
