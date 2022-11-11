@@ -76,7 +76,18 @@ def porcentagem():
     for i in range(0, len(dados_lidos)):
       for j in range(0,2):
         segunda_tela.tableWidget_2.setItem(i,j,QtWidgets.QTableWidgetItem(str(dados_lidos[i][j])))   
-    
+  
+def excluir():
+  linha = segunda_tela.tableWidget.currentRow()
+  segunda_tela.tableWidget.removeRow(linha)
+  cursor = banco.cursor()
+  cursor.execute("SELECT id FROM herois")  
+  dados_lidos = cursor.fetchall()
+  valor_id = dados_lidos[linha][0]
+  cursor.execute("DELETE FROM herois WHERE id = " + str(valor_id))
+  
+  print(dados_lidos)
+      
     
 def gerar_pdf():     
     cursor = banco.cursor()   
@@ -113,6 +124,7 @@ formulario.pushButton.clicked.connect(funcao_principal)
 formulario.pushButton_2.clicked.connect(chama_segunda_tela)
 segunda_tela.pushButton.clicked.connect(gerar_pdf)
 segunda_tela.pushButton_2.clicked.connect(porcentagem)
+segunda_tela.pushButton_3.clicked.connect(excluir)
 
 formulario.show()
 app.exec()
